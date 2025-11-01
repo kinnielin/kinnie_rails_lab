@@ -10,7 +10,7 @@
         <tr>
           <th>標題</th>
           <th>內容預覽</th>
-          <th>作者ID</th>
+          <th>作者</th>
           <th>建立時間</th>
           <th width="200">操作</th>
         </tr>
@@ -25,7 +25,7 @@
               <%= truncate(blog.content, length: 50) %>
             </td>
             <td>
-              <span class="badge bg-secondary"><%= blog.user_id %></span>
+              <span class="badge bg-secondary"><%= blog.user.account %></span>
             </td>
             <td>
               <small class="text-muted">

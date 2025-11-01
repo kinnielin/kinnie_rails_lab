@@ -35,17 +35,16 @@
           </div>
 
           <div class="mb-3">
-            <%= form.label :user_id, "作者ID", class: "form-label" %>
-            <%= form.number_field :user_id, 
-                class: "form-control #{'is-invalid' if @blog.errors[:user_id].any?}",
-                placeholder: "請輸入作者ID",
-                min: 1 %>
+            <%= form.label :user_id, "作者", class: "form-label" %>
+            <%= form.collection_select :user_id, User.all, :id, :account, 
+                { prompt: "請選擇作者" }, 
+                { class: "form-select #{'is-invalid' if @blog.errors[:user_id].any?}" } %>
             <% if @blog.errors[:user_id].any? %>
               <div class="invalid-feedback">
                 <%= @blog.errors[:user_id].first %>
               </div>
             <% end %>
-            <div class="form-text">請輸入大於 0 的數字</div>
+            <div class="form-text">請選擇文章作者</div>
           </div>
 
           <div class="d-flex justify-content-between">
