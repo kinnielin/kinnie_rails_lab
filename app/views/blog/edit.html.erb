@@ -6,7 +6,7 @@
       </div>
       
       <div class="card-body">
-        <%= form_with model: @blog, local: true do |form| %>
+        <%= form_with model: @blog, url: blog_path(@blog), local: true do |form| %>
           <%= render 'shared/form_errors', object: @blog %>
           
           <div class="mb-3">

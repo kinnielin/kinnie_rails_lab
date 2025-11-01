@@ -1,4 +1,4 @@
-class BlogsController < ApplicationController
+class BlogController < ApplicationController
   before_action :find_blog, only: [ :show, :edit, :update, :destroy ]
 
   def index
@@ -35,7 +35,7 @@ class BlogsController < ApplicationController
 
   def destroy
     @blog.destroy
-    redirect_to blogs_path, notice: "Blog 已成功刪除。"
+    redirect_to blog_index_path, notice: "Blog 已成功刪除。"
   end
 
   private

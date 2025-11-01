@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  resources :blogs
-  root "blogs#index"
+  resources :blog
+  root "blog#index"
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

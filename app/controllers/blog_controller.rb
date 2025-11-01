@@ -35,7 +35,7 @@ class BlogController < ApplicationController
 
   def destroy
     @blog.destroy
-    redirect_to blogs_path, notice: "Blog 已成功刪除。"
+    redirect_to blog_index_path, notice: "Blog 已成功刪除。"
   end
 
   private
