@@ -1,0 +1,62 @@
+<div class="row">
+  <div class="col-lg-8 mx-auto">
+    <div class="card">
+      <div class="card-header">
+        <h1>編輯文章</h1>
+      </div>
+      
+      <div class="card-body">
+        <%= form_with model: @blog, local: true do |form| %>
+          <%= render 'shared/form_errors', object: @blog %>
+          
+          <div class="mb-3">
+            <%= form.label :title, "標題", class: "form-label" %>
+            <%= form.text_field :title, 
+                class: "form-control #{'is-invalid' if @blog.errors[:title].any?}",
+                placeholder: "請輸入文章標題" %>
+            <% if @blog.errors[:title].any? %>
+              <div class="invalid-feedback">
+                <%= @blog.errors[:title].first %>
+              </div>
+            <% end %>
+          </div>
+
+          <div class="mb-3">
+            <%= form.label :content, "內容", class: "form-label" %>
+            <%= form.text_area :content, 
+                class: "form-control #{'is-invalid' if @blog.errors[:content].any?}",
+                rows: 8,
+                placeholder: "請輸入文章內容" %>
+            <% if @blog.errors[:content].any? %>
+              <div class="invalid-feedback">
+                <%= @blog.errors[:content].first %>
+              </div>
+            <% end %>
+          </div>
+
+          <div class="mb-3">
+            <%= form.label :user_id, "作者ID", class: "form-label" %>
+            <%= form.number_field :user_id, 
+                class: "form-control #{'is-invalid' if @blog.errors[:user_id].any?}",
+                placeholder: "請輸入作者ID",
+                min: 1 %>
+            <% if @blog.errors[:user_id].any? %>
+              <div class="invalid-feedback">
+                <%= @blog.errors[:user_id].first %>
+              </div>
+            <% end %>
+            <div class="form-text">請輸入大於 0 的數字</div>
+          </div>
+
+          <div class="d-flex justify-content-between">
+            <div>
+              <%= link_to "取消", @blog, class: "btn btn-secondary" %>
+              <%= link_to "檢視", @blog, class: "btn btn-outline-info" %>
+            </div>
+            <%= form.submit "更新文章", class: "btn btn-primary" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

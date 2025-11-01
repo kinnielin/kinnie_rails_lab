@@ -1,0 +1,13 @@
+<% if object.errors.any? %>
+  <div class="alert alert-danger" role="alert">
+    <h6 class="alert-heading">
+      <i class="fas fa-exclamation-triangle"></i>
+      發現 <%= pluralize(object.errors.count, "個") %> 錯誤：
+    </h6>
+    <ul class="mb-0">
+      <% object.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
