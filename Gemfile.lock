@@ -189,11 +189,6 @@ GEM
     parser (3.3.10.0)
       ast (~> 2.4.1)
       racc
-    pg (1.6.2)
-    pg (1.6.2-aarch64-linux)
-    pg (1.6.2-aarch64-linux-musl)
-    pg (1.6.2-x86_64-linux)
-    pg (1.6.2-x86_64-linux-musl)
     pp (0.6.3)
       prettyprint
     prettyprint (0.2.0)
@@ -254,10 +249,6 @@ GEM
       erb
       psych (>= 4.0.0)
       tsort
-    redis (5.4.1)
-      redis-client (>= 0.22.0)
-    redis-client (0.26.1)
-      connection_pool
     regexp_parser (2.11.3)
     reline (0.6.2)
       io-console (~> 0.5)
@@ -396,11 +387,9 @@ DEPENDENCIES
   importmap-rails
   jbuilder
   kamal
-  pg (~> 1.0)
   propshaft
   puma (>= 5.0)
   rails (~> 8.0.3)
-  redis (~> 5.0)
   rspec-rails
   rubocop-rails-omakase
   selenium-webdriver
