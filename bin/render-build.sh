@@ -21,6 +21,32 @@ bundle exec rake assets:clean
 
 # 執行資料庫遷移 (Migrations)
 echo "執行資料庫遷移..."
-bundle exec rake db:create db:migrate
+bundle exec rake db:create
+bundle exec rake db:migrate
+
+# 為 Rails 8 的多資料庫功能設置 schema
+echo "設置多資料庫 schema..."
+bundle exec rails runner "
+begin
+  ActiveRecord::Tasks::DatabaseTasks.load_schema_for :cache
+  puts 'Cache schema loaded successfully'
+rescue => e
+  puts 'Cache schema loading skipped or failed: ' + e.message
+end
+
+begin
+  ActiveRecord::Tasks::DatabaseTasks.load_schema_for :queue
+  puts 'Queue schema loaded successfully'
+rescue => e
+  puts 'Queue schema loading skipped or failed: ' + e.message
+end
+
+begin
+  ActiveRecord::Tasks::DatabaseTasks.load_schema_for :cable
+  puts 'Cable schema loaded successfully'
+rescue => e
+  puts 'Cable schema loading skipped or failed: ' + e.message
+end
+"
 
 echo "構建完成！"

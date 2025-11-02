@@ -9,12 +9,9 @@ test:
   adapter: test
 
 production:
-  # adapter: solid_cable
-  # connects_to:
-  #   database:
-  #     writing: cable
-  # polling_interval: 0.1.seconds
-  # message_retention: 1.day
-
-# 設為 async 模式，它在生產環境中不推薦用於高負載，但可以解決部署錯誤
-  adapter: async
+  adapter: solid_cable
+  connects_to:
+    database:
+      writing: cable
+  polling_interval: 0.1.seconds
+  message_retention: 1.day
