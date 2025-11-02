@@ -1,5 +1,6 @@
 class BlogsController < ApplicationController
   before_action :find_blog, only: [ :show, :edit, :update, :destroy ]
+  before_action :require_user, only: [ :new, :create, :edit, :update, :destroy ]
 
   def index
     @blogs = Blog.all.order(created_at: :desc)
@@ -14,6 +15,7 @@ class BlogsController < ApplicationController
 
   def create
     @blog = Blog.new(blog_params)
+    @blog.user = current_user # 自動設定當前用戶
 
     if @blog.save
       redirect_to @blog, notice: "Blog 已成功建立。"
@@ -45,6 +47,6 @@ class BlogsController < ApplicationController
   end
 
   def blog_params
-    params.require(:blog).permit(:title, :content, :user_id)
+    params.require(:blog).permit(:title, :content)
   end
 end

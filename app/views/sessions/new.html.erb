@@ -1,0 +1,32 @@
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header">
+          <h3 class="text-center">用戶登入</h3>
+        </div>
+        <div class="card-body">
+          <%= form_with url: login_path, local: true, class: "needs-validation", novalidate: true do |form| %>
+            <div class="mb-3">
+              <%= form.label :account, "帳號", class: "form-label" %>
+              <%= form.text_field :account, class: "form-control", required: true %>
+            </div>
+            
+            <div class="mb-3">
+              <%= form.label :password, "密碼", class: "form-label" %>
+              <%= form.password_field :password, class: "form-control", required: true %>
+            </div>
+            
+            <div class="d-grid">
+              <%= form.submit "登入", class: "btn btn-primary" %>
+            </div>
+          <% end %>
+          
+          <div class="text-center mt-3">
+            <%= link_to "返回首頁", root_path, class: "btn btn-link" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

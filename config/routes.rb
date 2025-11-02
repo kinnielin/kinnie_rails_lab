@@ -1,5 +1,12 @@
 Rails.application.routes.draw do
   resources :blogs
+  
+  # 用戶認證路由
+  get '/login', to: 'sessions#new'
+  post '/login', to: 'sessions#create'
+  delete '/logout', to: 'sessions#destroy'
+  get '/logout', to: 'sessions#destroy'  # 備用 GET 方法
+  
   root "blogs#index"
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

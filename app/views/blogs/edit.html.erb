@@ -35,16 +35,9 @@
           </div>
 
           <div class="mb-3">
-            <%= form.label :user_id, "作者", class: "form-label" %>
-            <%= form.collection_select :user_id, User.all, :id, :account, 
-                { prompt: "請選擇作者" }, 
-                { class: "form-select #{'is-invalid' if @blog.errors[:user_id].any?}" } %>
-            <% if @blog.errors[:user_id].any? %>
-              <div class="invalid-feedback">
-                <%= @blog.errors[:user_id].first %>
-              </div>
-            <% end %>
-            <div class="form-text">請選擇文章作者</div>
+            <div class="form-text">
+              <i class="fas fa-user"></i> 原始作者：<strong><%= @blog.user.account %></strong>
+            </div>
           </div>
 
           <div class="d-flex justify-content-between">
