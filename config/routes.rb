@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :blogs
+  resources :profile, only: [:index]
   
   # 用戶認證路由
   get '/login', to: 'sessions#new'
